@@ -36,13 +36,9 @@ if __name__ == "__main__":
                     session.add(usuario)
                     session.commit()
                 case 2:
-                    contato = session.query(Usuario).all()
-
-                    print(contato)
-
-                    print('Usuarios')
-                    print('Id | Nome | Email | Telefone')
-                    for c in contato:
+                    usuarios = session.query(Usuario).all()
+                    for c in usuarios:
                         print(f'{c.id} | {c.nome} | {c.email} | {c.telefone}')
                 case 0:
                     break
+
