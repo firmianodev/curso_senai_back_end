@@ -15,8 +15,8 @@ class Produto(Base):
     __tablename__ = 'usuarios'
     id: Mapped[int] = mapped_column(primary_key=True)
     nome: Mapped[str] = mapped_column()
-    preco: Mapped[str] = mapped_column()
-    estoque: Mapped[str] = mapped_column()
+    preco: Mapped[float] = mapped_column()
+    estoque: Mapped[float] = mapped_column()
 
     def __init__(self, nome, preco, estoque):
         self.nome = nome
@@ -45,8 +45,8 @@ if __name__ == "__main__":
             match op:
                 case 1:
                     nome = input('nome: ')
-                    preco = input('preco: ')
-                    estoque = input('estoque: ')
+                    preco = float(input('preco: '))
+                    estoque = float(input('estoque: '))
                     produto = Produto(nome, preco, estoque)
                     session.add(produto)
                     session.commit()
@@ -55,14 +55,14 @@ if __name__ == "__main__":
                     id = int(input('ID do produto a atualizar: '))
                     produto = session.query(Produto).filter_by(id=id).first()
                     if produto:
-                        preco = input('novo preco: ')
+                        preco = float(input('novo preco: '))
                         produto.set_preco(preco)
                         session.commit()
                 case 3:
                     id = int(input('ID do produto a atualizar: '))
                     produto = session.query(Produto).filter_by(id=id).first()
                     if produto:
-                        estoque = input('novo estoque: ')
+                        estoque = float(input('novo estoque: '))
                         produto.set_estoque(estoque)
                         session.commit()
                 case 4:
