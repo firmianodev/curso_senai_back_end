@@ -18,7 +18,5 @@ class FilmeSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Filme
-        fields = ['titulo','genero' , 'genero_id']
-        
-        # fields = ['id', 'titulo', 'sinopse', 'ano_lancamento', 'nota',
-        #       'disponivel', 'criado_em', 'genero', 'genero_id']
+        fields = ['id', 'titulo', 'sinopse', 'ano_lancamento', 'nota',
+              'disponivel', 'criado_em', 'genero', 'genero_id']
